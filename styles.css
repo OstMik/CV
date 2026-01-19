@@ -32,7 +32,7 @@ body {
   display: grid;
   grid-template-columns: 2.2fr 1fr;
   gap: 20px;
-  padding: 22mm 10mm;
+  padding: 22mm 8mm;
   border-radius: 18px;
   box-shadow: 0 24px 40px rgba(26, 33, 26, 0.12);
 }
@@ -43,7 +43,7 @@ body {
 
 .page.letter {
   grid-template-columns: 1fr;
-  padding: 26mm 14mm;
+  padding: 26mm 12mm;
 }
 
 .left {
@@ -104,7 +104,7 @@ section h3::after {
 .letter-content {
   background: var(--parchment);
   border-radius: 18px;
-  padding: 20mm 10mm;
+  padding: 20mm 8mm;
   box-shadow: 0 18px 30px rgba(149, 150, 150, 0.12);
   border: 1px solid rgba(149, 150, 150, 0.2);
 }
