@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --blue: #0b4aa8;
-  --light-blue: #0f5cc2;
-  --text: #1e1e1e;
-  --muted: #5e6775;
-  --bg: #f8f6f2;
+  --pale-amber: #d3de7d;
+  --pale-sky: #d7eefe;
+  --dust-grey: #cfcdca;
+  --grey-olive: #959696;
+  --bright-snow: #faf9f9;
+  --blue: var(--grey-olive);
+  --light-blue: var(--pale-amber);
+  --text: var(--grey-olive);
+  --muted: var(--dust-grey);
+  --bg: var(--bright-snow);
 }
 
 * {
@@ -16,7 +21,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background: #ffffff;
+  background: var(--pale-sky);
   color: var(--text);
 }
 
@@ -77,11 +82,11 @@ section h3 {
 }
 
 .letter-content {
-  background: white;
+  background: var(--bright-snow);
   border-radius: 18px;
   padding: 20mm 18mm;
-  box-shadow: 0 18px 30px rgba(11, 74, 168, 0.08);
-  border: 1px solid rgba(11, 74, 168, 0.08);
+  box-shadow: 0 18px 30px rgba(149, 150, 150, 0.12);
+  border: 1px solid rgba(149, 150, 150, 0.2);
 }
 
 .letter-header {
@@ -226,9 +231,9 @@ section h3 {
 
 .photo-card {
   padding: 10px;
-  background: white;
+  background: var(--bright-snow);
   border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 20px rgba(149, 150, 150, 0.15);
   transform: rotate(-2deg);
 }
 
@@ -255,7 +260,7 @@ section h3 {
 
 .bar {
   height: 8px;
-  background: #d7deea;
+  background: var(--pale-sky);
   border-radius: 999px;
   margin-top: 4px;
   overflow: hidden;
@@ -319,7 +324,7 @@ section h3 {
 
 @media print {
   body {
-    background: white;
+    background: var(--bright-snow);
   }
   .page {
     margin: 0;
