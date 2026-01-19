@@ -285,29 +285,17 @@ section h3::after {
   margin-bottom: 4px;
 }
 
-.skills .skill {
-  margin-bottom: 10px;
-}
-
-.skills span {
+.skills ul,
+.tools ul,
+.languages ul {
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
   font-size: 11.5px;
   font-weight: 600;
   color: var(--muted);
-}
-
-.bar {
-  height: 8px;
-  background: var(--pale-sky);
-  border-radius: 999px;
-  margin-top: 4px;
-  overflow: hidden;
-}
-
-.bar span {
-  display: block;
-  height: 100%;
-  background: var(--light-blue);
-  border-radius: 999px;
 }
 
 .education .edu-item {
