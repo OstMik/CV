@@ -270,6 +270,16 @@ section h3::after {
   display: block;
 }
 
+.language-emojis {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-top: -2px;
+}
+
 .contact p {
   font-size: 12px;
   margin-bottom: 4px;
@@ -326,22 +336,6 @@ section h3::after {
 .education p {
   font-size: 11px;
   color: var(--muted);
-}
-
-.tools p,
-.languages li {
-  font-size: 11.5px;
-  color: var(--text);
-  line-height: 1.4;
-}
-
-.languages ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.languages li {
-  margin-bottom: 4px;
 }
 
 @page {
