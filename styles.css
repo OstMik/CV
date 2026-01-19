@@ -35,7 +35,7 @@ body {
   display: grid;
   grid-template-columns: 2.2fr 1fr;
   gap: 20px;
-  padding: 14mm 14mm;
+  padding: 10mm 14mm;
   border-radius: 18px;
   box-shadow: 0 24px 40px rgba(26, 33, 26, 0.12);
 }
