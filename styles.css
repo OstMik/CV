@@ -230,9 +230,8 @@ section h3::after {
 
 .role {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 12px;
+  flex-direction: column;
+  gap: 4px;
   margin-bottom: 4px;
 }
 
@@ -242,10 +241,27 @@ section h3::after {
   font-size: 13.2px;
 }
 
-.role .time {
+.role-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.role .employer {
+  font-size: 13.2px;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.role .period {
   font-size: 11px;
-  color: var(--muted);
-  text-align: right;
+  font-weight: 600;
+  color: var(--blue);
+  background: rgba(208, 230, 115, 0.4);
+  border: 1px solid rgba(26, 33, 26, 0.08);
+  padding: 3px 10px;
+  border-radius: 999px;
   white-space: nowrap;
 }
 
