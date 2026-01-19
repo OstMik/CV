@@ -8,7 +8,7 @@
   --bright-snow: #faf9f9;
   --blue: var(--grey-olive);
   --light-blue: var(--pale-amber);
-  --text: var(--grey-olive);
+  --text: #000000;
   --muted: var(--dust-grey);
   --bg: var(--bright-snow);
 }
