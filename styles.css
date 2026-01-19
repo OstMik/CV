@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --blue: #0b4aa8;
-  --light-blue: #0f5cc2;
-  --text: #1e1e1e;
-  --muted: #5e6775;
-  --bg: #f8f6f2;
+  --pale-amber: #d3de7d;
+  --pale-sky: #d7eefe;
+  --dust-grey: #cfcdca;
+  --grey-olive: #959696;
+  --bright-snow: #faf9f9;
+  --text: var(--grey-olive);
 }
 
 * {
@@ -16,7 +17,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background: #ffffff;
+  background: var(--bright-snow);
   color: var(--text);
 }
 
@@ -24,7 +25,7 @@ body {
   width: 210mm;
   height: 297mm;
   margin: 0 auto;
-  background: var(--bg);
+  background: var(--bright-snow);
   display: grid;
   grid-template-columns: 2.2fr 1fr;
   gap: 20px;
@@ -47,21 +48,34 @@ body {
 .hero h1 {
   font-size: 34px;
   letter-spacing: 1px;
-  color: var(--blue);
+  color: var(--grey-olive);
   font-weight: 800;
+}
+
+.hero .location {
+  font-size: 12.5px;
+  color: var(--grey-olive);
+  margin-top: 4px;
+  font-weight: 600;
 }
 
 .hero h2 {
   font-size: 16px;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--grey-olive);
   margin-top: 6px;
   font-weight: 600;
 }
 
+.hero .languages-inline {
+  font-size: 11.5px;
+  color: var(--grey-olive);
+  margin-top: 6px;
+}
+
 section h3 {
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--grey-olive);
   font-weight: 800;
   font-size: 16px;
   margin-bottom: 8px;
@@ -71,21 +85,6 @@ section h3 {
   font-size: 12.4px;
   line-height: 1.45;
   margin-bottom: 8px;
-}
-
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.chips span {
-  background: var(--light-blue);
-  color: white;
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 600;
 }
 
 .experience article {
@@ -101,18 +100,24 @@ section h3 {
 
 .role .title {
   font-weight: 700;
-  color: var(--blue);
+  color: var(--grey-olive);
   font-size: 13px;
 }
 
 .role .time {
   font-size: 11px;
-  color: var(--muted);
+  color: var(--dust-grey);
 }
 
 .experience p {
   font-size: 12px;
   margin-bottom: 4px;
+}
+
+.experience .note {
+  font-size: 11px;
+  color: var(--grey-olive);
+  margin-bottom: 6px;
 }
 
 .experience ul {
@@ -128,7 +133,7 @@ section h3 {
 
 .photo-card {
   padding: 10px;
-  background: white;
+  background: var(--pale-sky);
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
   transform: rotate(-2deg);
@@ -140,51 +145,32 @@ section h3 {
   display: block;
 }
 
-.contact p {
-  font-size: 12px;
-  margin-bottom: 4px;
-}
-
-.skills .skill {
-  margin-bottom: 10px;
-}
-
-.skills span {
+.expertise ul {
+  padding-left: 18px;
   font-size: 11.5px;
-  font-weight: 600;
-  color: var(--muted);
+  line-height: 1.4;
+  color: var(--text);
 }
 
-.bar {
-  height: 8px;
-  background: #d7deea;
-  border-radius: 999px;
-  margin-top: 4px;
-  overflow: hidden;
-}
-
-.bar span {
-  display: block;
-  height: 100%;
-  background: var(--light-blue);
-  border-radius: 999px;
+.expertise li {
+  margin-bottom: 4px;
 }
 
 .education .edu-item {
   display: grid;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: 72px 1fr;
   gap: 8px;
   margin-bottom: 10px;
 }
 
 .education .year {
-  background: var(--light-blue);
-  color: white;
+  background: var(--pale-amber);
+  color: var(--grey-olive);
   font-weight: 700;
-  font-size: 11px;
+  font-size: 10.5px;
   border-radius: 999px;
   text-align: center;
-  padding: 6px 0;
+  padding: 6px 8px;
   height: fit-content;
 }
 
@@ -195,7 +181,7 @@ section h3 {
 
 .education p {
   font-size: 11px;
-  color: var(--muted);
+  color: var(--grey-olive);
 }
 
 .tools p,
