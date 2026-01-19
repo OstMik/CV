@@ -35,7 +35,7 @@ body {
   display: grid;
   grid-template-columns: 2.2fr 1fr;
   gap: 20px;
-  padding: 18mm 14mm 22mm;
+  padding: 14mm 14mm;
   border-radius: 18px;
   box-shadow: 0 24px 40px rgba(26, 33, 26, 0.12);
 }
@@ -46,7 +46,7 @@ body {
 
 .page.letter {
   grid-template-columns: 1fr;
-  padding: 22mm 18mm 26mm;
+  padding: 22mm 18mm;
 }
 
 .left {
