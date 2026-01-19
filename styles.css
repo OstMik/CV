@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --blue: #0b4aa8;
-  --light-blue: #0f5cc2;
-  --text: #1e1e1e;
-  --muted: #5e6775;
-  --bg: #f8f6f2;
+  --pale-amber: #d3de7d;
+  --pale-sky: #d7eefe;
+  --dust-grey: #cfcdca;
+  --grey-olive: #959696;
+  --bright-snow: #faf9f9;
+  --text: var(--grey-olive);
 }
 
 * {
@@ -16,80 +17,78 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background: #ffffff;
+  background: var(--bright-snow);
   color: var(--text);
 }
 
 .page {
-  width: 210mm;
-  height: 297mm;
+  width: 595pt;
+  height: 842pt;
   margin: 0 auto;
-  background: var(--bg);
+  background: var(--bright-snow);
   display: grid;
-  grid-template-columns: 2.2fr 1fr;
-  gap: 20px;
-  padding: 22mm 18mm;
+  grid-template-columns: 2.15fr 1fr;
+  gap: 14px;
+  padding: 28pt 24pt;
 }
 
 .left {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 12px;
 }
 
 .right {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 12px;
   align-items: stretch;
 }
 
 .hero h1 {
-  font-size: 34px;
+  font-size: 28px;
   letter-spacing: 1px;
-  color: var(--blue);
+  color: var(--grey-olive);
   font-weight: 800;
 }
 
-.hero h2 {
-  font-size: 16px;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 6px;
+.hero .location {
+  font-size: 11px;
+  color: var(--grey-olive);
+  margin-top: 3px;
   font-weight: 600;
+}
+
+.hero h2 {
+  font-size: 12.5px;
+  text-transform: uppercase;
+  color: var(--grey-olive);
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.hero .languages-inline {
+  font-size: 10.5px;
+  color: var(--grey-olive);
+  margin-top: 4px;
 }
 
 section h3 {
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--grey-olive);
   font-weight: 800;
-  font-size: 16px;
-  margin-bottom: 8px;
+  font-size: 13px;
+  margin-bottom: 6px;
 }
 
 .profile p {
-  font-size: 12.4px;
-  line-height: 1.45;
-  margin-bottom: 8px;
-}
-
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.chips span {
-  background: var(--light-blue);
-  color: white;
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 11.2px;
+  line-height: 1.4;
+  margin-bottom: 6px;
 }
 
 .experience article {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .role {
@@ -101,34 +100,40 @@ section h3 {
 
 .role .title {
   font-weight: 700;
-  color: var(--blue);
-  font-size: 13px;
+  color: var(--grey-olive);
+  font-size: 11.5px;
 }
 
 .role .time {
-  font-size: 11px;
-  color: var(--muted);
+  font-size: 10px;
+  color: var(--dust-grey);
 }
 
 .experience p {
-  font-size: 12px;
+  font-size: 10.5px;
+  margin-bottom: 3px;
+}
+
+.experience .note {
+  font-size: 10px;
+  color: var(--grey-olive);
   margin-bottom: 4px;
 }
 
 .experience ul {
-  padding-left: 18px;
-  font-size: 11.5px;
-  line-height: 1.4;
+  padding-left: 16px;
+  font-size: 10.5px;
+  line-height: 1.35;
   color: var(--text);
 }
 
 .experience li {
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .photo-card {
-  padding: 10px;
-  background: white;
+  padding: 8px;
+  background: var(--pale-sky);
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
   transform: rotate(-2deg);
@@ -140,69 +145,50 @@ section h3 {
   display: block;
 }
 
-.contact p {
-  font-size: 12px;
-  margin-bottom: 4px;
+.expertise ul {
+  padding-left: 16px;
+  font-size: 10.5px;
+  line-height: 1.35;
+  color: var(--text);
 }
 
-.skills .skill {
-  margin-bottom: 10px;
-}
-
-.skills span {
-  font-size: 11.5px;
-  font-weight: 600;
-  color: var(--muted);
-}
-
-.bar {
-  height: 8px;
-  background: #d7deea;
-  border-radius: 999px;
-  margin-top: 4px;
-  overflow: hidden;
-}
-
-.bar span {
-  display: block;
-  height: 100%;
-  background: var(--light-blue);
-  border-radius: 999px;
+.expertise li {
+  margin-bottom: 3px;
 }
 
 .education .edu-item {
   display: grid;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: 78px 1fr;
   gap: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .education .year {
-  background: var(--light-blue);
-  color: white;
+  background: var(--pale-amber);
+  color: var(--grey-olive);
   font-weight: 700;
-  font-size: 11px;
+  font-size: 9.5px;
   border-radius: 999px;
   text-align: center;
-  padding: 6px 0;
+  padding: 5px 6px;
   height: fit-content;
 }
 
 .edu-title {
   font-weight: 600;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .education p {
-  font-size: 11px;
-  color: var(--muted);
+  font-size: 10px;
+  color: var(--grey-olive);
 }
 
 .tools p,
 .languages li {
-  font-size: 11.5px;
+  font-size: 10.5px;
   color: var(--text);
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
 .languages ul {
@@ -211,7 +197,7 @@ section h3 {
 }
 
 .languages li {
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 @page {
