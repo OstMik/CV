@@ -1,17 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --mandarin: #fe5400;
-  --black: #000000;
-  --white: #ffffff;
-  --warm-white: #fff7f3;
-  --pale-peach: #ffe8dc;
-  --ash: #2b2b2b;
-  --text: var(--black);
-  --muted: #1c1c1c;
+  --navy: rgb(0, 60, 130);
+  --white: rgb(255, 255, 255);
+  --mist: rgba(239, 239, 239, 0.5);
+  --teal: rgb(0, 220, 180);
+  --cyan: rgb(0, 180, 210);
+  --ice: rgb(128, 217, 232);
+  --mint: rgb(128, 237, 217);
+  --sky: rgb(128, 187, 243);
+  --frost: rgb(242, 251, 253);
+  --white-20: rgba(255, 255, 255, 0.2);
+  --blue: rgb(0, 120, 230);
+  --white-40: rgba(255, 255, 255, 0.4);
+  --white-80: rgba(255, 255, 255, 0.8);
+  --ink: rgb(32, 32, 32);
+  --text: var(--ink);
+  --muted: rgb(0, 60, 130);
   --bg: var(--white);
-  --pale-sky: #f5f5f5;
-  --parchment: #fffaf7;
 }
 
 * {
@@ -22,7 +28,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background: var(--pale-sky);
+  background: var(--mist);
   color: var(--text);
   font-size: 12.5px;
   letter-spacing: 0.1px;
@@ -33,14 +39,14 @@ body {
   width: 210mm;
   height: 297mm;
   margin: 0 auto;
-  background: var(--bg);
+  background: linear-gradient(150deg, var(--white), var(--frost), var(--white-20));
   display: grid;
   grid-template-columns: 2.2fr 1fr;
   gap: 20px;
   padding: 10mm 14mm;
   border-radius: 18px;
-  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.18);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 24px 40px rgba(0, 60, 130, 0.18);
+  border: 1px solid var(--white-20);
 }
 
 .page + .page {
@@ -66,25 +72,25 @@ body {
 }
 
 .right > section {
-  background: var(--warm-white);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-left: 4px solid var(--mandarin);
+  background: var(--white-80);
+  border: 1px solid var(--white-40);
+  border-left: 4px solid var(--teal);
   border-radius: 14px;
   padding: 12px 14px;
-  box-shadow: 0 12px 18px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 18px rgba(0, 60, 130, 0.1);
 }
 
 .hero h1 {
   font-size: 34px;
   letter-spacing: 1.6px;
-  color: var(--black);
+  color: var(--navy);
   font-weight: 800;
 }
 
 .hero h2 {
   font-size: 14.5px;
   text-transform: uppercase;
-  color: var(--ash);
+  color: var(--ink);
   margin-top: 8px;
   font-weight: 600;
   letter-spacing: 0.6px;
@@ -92,7 +98,7 @@ body {
 
 section h3 {
   text-transform: uppercase;
-  color: var(--black);
+  color: var(--navy);
   font-weight: 800;
   font-size: 15px;
   margin-bottom: 10px;
@@ -105,16 +111,16 @@ section h3::after {
   width: 34px;
   height: 3px;
   border-radius: 999px;
-  background: var(--mandarin);
+  background: linear-gradient(120deg, var(--teal), var(--cyan), var(--blue));
   margin-top: 6px;
 }
 
 .letter-content {
-  background: var(--parchment);
+  background: var(--frost);
   border-radius: 18px;
   padding: 14mm 12mm;
-  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.14);
-  border: 1px solid rgba(0, 0, 0, 0.18);
+  box-shadow: 0 18px 30px rgba(0, 60, 130, 0.14);
+  border: 1px solid var(--white-40);
 }
 
 .letter-header {
@@ -126,7 +132,7 @@ section h3::after {
 
 .letter-header h1 {
   font-size: 26px;
-  color: var(--black);
+  color: var(--navy);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1.4px;
@@ -134,7 +140,7 @@ section h3::after {
 
 .letter-role {
   font-size: 11px;
-  color: var(--ash);
+  color: var(--ink);
   font-weight: 600;
   margin-top: 8px;
   text-transform: uppercase;
@@ -144,7 +150,7 @@ section h3::after {
 .letter-contact {
   text-align: right;
   font-size: 10.6px;
-  color: var(--ash);
+  color: var(--navy);
   font-weight: 600;
   display: flex;
   flex-direction: column;
@@ -153,7 +159,7 @@ section h3::after {
 
 .letter-divider {
   height: 2px;
-  background: linear-gradient(90deg, var(--mandarin), transparent);
+  background: linear-gradient(90deg, var(--teal), var(--cyan), transparent);
   margin: 12px 0 10px;
 }
 
@@ -163,12 +169,12 @@ section h3::after {
   align-items: baseline;
   gap: 12px;
   font-size: 12px;
-  color: var(--ash);
+  color: var(--navy);
   font-weight: 600;
 }
 
 .letter-subject {
-  color: var(--black);
+  color: var(--navy);
   font-weight: 700;
 }
 
@@ -191,13 +197,13 @@ section h3::after {
 
 .letter-greeting {
   font-weight: 600;
-  color: var(--black);
+  color: var(--navy);
 }
 
 .letter-signature {
   margin-top: 16px;
   font-weight: 600;
-  color: var(--black);
+  color: var(--navy);
 }
 
 .profile p {
@@ -213,7 +219,7 @@ section h3::after {
 }
 
 .chips span {
-  background: var(--mandarin);
+  background: var(--blue);
   color: var(--white);
   padding: 6px 12px;
   border-radius: 999px;
@@ -224,7 +230,7 @@ section h3::after {
 .experience article {
   margin-bottom: 12px;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid var(--white-40);
 }
 
 .experience article:last-child {
@@ -241,7 +247,7 @@ section h3::after {
 
 .role .title {
   font-weight: 700;
-  color: var(--black);
+  color: var(--navy);
   font-size: 13.2px;
 }
 
@@ -255,15 +261,15 @@ section h3::after {
 .role .employer {
   font-size: 13.2px;
   font-weight: 600;
-  color: var(--black);
+  color: var(--ink);
 }
 
 .role .period {
   font-size: 11px;
   font-weight: 600;
-  color: var(--black);
-  background: var(--pale-peach);
-  border: 1px solid rgba(254, 84, 0, 0.35);
+  color: var(--navy);
+  background: var(--mint);
+  border: 1px solid var(--sky);
   padding: 3px 10px;
   border-radius: 999px;
   white-space: nowrap;
@@ -289,11 +295,11 @@ section h3::after {
 
 .photo-card {
   padding: 10px;
-  background: var(--parchment);
+  background: var(--white-80);
   border-radius: 10px;
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 12px 20px rgba(0, 60, 130, 0.18);
   transform: rotate(-2deg);
-  border: 2px solid rgba(254, 84, 0, 0.4);
+  border: 2px solid var(--ice);
 }
 
 .photo-card img {
@@ -308,7 +314,7 @@ section h3::after {
   gap: 10px;
   font-size: 12px;
   font-weight: 600;
-  color: var(--muted);
+  color: var(--navy);
   margin-top: -2px;
 }
 
@@ -327,12 +333,12 @@ section h3::after {
   margin: 0;
   font-size: 11.2px;
   font-weight: 600;
-  color: var(--muted);
+  color: var(--ink);
 }
 
 .skills li::marker,
 .languages li::marker {
-  color: var(--mandarin);
+  color: var(--teal);
 }
 
 .education .edu-item {
@@ -343,7 +349,7 @@ section h3::after {
 }
 
 .education .year {
-  background: var(--mandarin);
+  background: var(--blue);
   color: var(--white);
   font-weight: 700;
   font-size: 10.8px;
@@ -360,7 +366,7 @@ section h3::after {
 
 .education p {
   font-size: 11.2px;
-  color: var(--muted);
+  color: var(--ink);
 }
 
 @page {
@@ -370,7 +376,7 @@ section h3::after {
 
 @media print {
   body {
-    background: var(--parchment);
+    background: var(--frost);
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -384,7 +390,7 @@ section h3::after {
   .photo-card,
   .letter-content {
     box-shadow: none;
-    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.14));
+    filter: drop-shadow(0 6px 12px rgba(0, 60, 130, 0.14));
   }
   .photo-card {
     transform: none;
