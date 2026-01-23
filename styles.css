@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --banana-cream: #F7E8EC;
+  --mandarin: #fe5400;
   --black: #000000;
   --white: #ffffff;
-  --alabaster-grey: #DBE3EE;
-  --blue: rgb(16, 23, 31);
-  --light-blue: rgb(16, 23, 31);
+  --warm-white: #fff7f3;
+  --pale-peach: #ffe8dc;
+  --ash: #2b2b2b;
   --text: var(--black);
-  --muted: var(--black);
+  --muted: #1c1c1c;
   --bg: var(--white);
-  --pale-sky: #EEF2F7;
-  --parchment: #FBFBFD;
+  --pale-sky: #f5f5f5;
+  --parchment: #fffaf7;
 }
 
 * {
@@ -39,7 +39,8 @@ body {
   gap: 20px;
   padding: 10mm 14mm;
   border-radius: 18px;
-  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .page + .page {
@@ -65,24 +66,25 @@ body {
 }
 
 .right > section {
-  background: rgba(254, 254, 254, 0.7);
+  background: var(--warm-white);
   border: 1px solid rgba(0, 0, 0, 0.08);
+  border-left: 4px solid var(--mandarin);
   border-radius: 14px;
   padding: 12px 14px;
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 18px rgba(0, 0, 0, 0.1);
 }
 
 .hero h1 {
   font-size: 34px;
   letter-spacing: 1.6px;
-  color: var(--blue);
+  color: var(--black);
   font-weight: 800;
 }
 
 .hero h2 {
-  font-size: 15px;
+  font-size: 14.5px;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--ash);
   margin-top: 8px;
   font-weight: 600;
   letter-spacing: 0.6px;
@@ -90,7 +92,7 @@ body {
 
 section h3 {
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--black);
   font-weight: 800;
   font-size: 15px;
   margin-bottom: 10px;
@@ -100,10 +102,10 @@ section h3 {
 section h3::after {
   content: "";
   display: block;
-  width: 32px;
+  width: 34px;
   height: 3px;
   border-radius: 999px;
-  background: var(--light-blue);
+  background: var(--mandarin);
   margin-top: 6px;
 }
 
@@ -111,8 +113,8 @@ section h3::after {
   background: var(--parchment);
   border-radius: 18px;
   padding: 20mm 14mm;
-  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.14);
+  border: 1px solid rgba(0, 0, 0, 0.18);
 }
 
 .letter-header {
@@ -124,7 +126,7 @@ section h3::after {
 
 .letter-header h1 {
   font-size: 27px;
-  color: var(--blue);
+  color: var(--black);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1.4px;
@@ -132,7 +134,7 @@ section h3::after {
 
 .letter-role {
   font-size: 11.5px;
-  color: var(--muted);
+  color: var(--ash);
   font-weight: 600;
   margin-top: 8px;
   text-transform: uppercase;
@@ -142,7 +144,7 @@ section h3::after {
 .letter-contact {
   text-align: right;
   font-size: 11px;
-  color: var(--muted);
+  color: var(--ash);
   font-weight: 600;
   display: flex;
   flex-direction: column;
@@ -151,7 +153,7 @@ section h3::after {
 
 .letter-divider {
   height: 2px;
-  background: linear-gradient(90deg, var(--light-blue), transparent);
+  background: linear-gradient(90deg, var(--mandarin), transparent);
   margin: 16px 0 12px;
 }
 
@@ -161,12 +163,12 @@ section h3::after {
   align-items: baseline;
   gap: 12px;
   font-size: 12px;
-  color: var(--muted);
+  color: var(--ash);
   font-weight: 600;
 }
 
 .letter-subject {
-  color: var(--blue);
+  color: var(--black);
   font-weight: 700;
 }
 
@@ -189,13 +191,13 @@ section h3::after {
 
 .letter-greeting {
   font-weight: 600;
-  color: var(--blue);
+  color: var(--black);
 }
 
 .letter-signature {
   margin-top: 22px;
   font-weight: 600;
-  color: var(--blue);
+  color: var(--black);
 }
 
 .profile p {
@@ -211,7 +213,7 @@ section h3::after {
 }
 
 .chips span {
-  background: var(--light-blue);
+  background: var(--mandarin);
   color: var(--white);
   padding: 6px 12px;
   border-radius: 999px;
@@ -239,7 +241,7 @@ section h3::after {
 
 .role .title {
   font-weight: 700;
-  color: var(--blue);
+  color: var(--black);
   font-size: 13.2px;
 }
 
@@ -253,15 +255,15 @@ section h3::after {
 .role .employer {
   font-size: 13.2px;
   font-weight: 600;
-  color: var(--blue);
+  color: var(--black);
 }
 
 .role .period {
   font-size: 11px;
   font-weight: 600;
-  color: var(--blue);
-  background: var(--alabaster-grey);
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: var(--black);
+  background: var(--pale-peach);
+  border: 1px solid rgba(254, 84, 0, 0.35);
   padding: 3px 10px;
   border-radius: 999px;
   white-space: nowrap;
@@ -289,8 +291,9 @@ section h3::after {
   padding: 10px;
   background: var(--parchment);
   border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.18);
   transform: rotate(-2deg);
+  border: 2px solid rgba(254, 84, 0, 0.4);
 }
 
 .photo-card img {
@@ -327,6 +330,11 @@ section h3::after {
   color: var(--muted);
 }
 
+.skills li::marker,
+.languages li::marker {
+  color: var(--mandarin);
+}
+
 .education .edu-item {
   display: grid;
   grid-template-columns: 50px 1fr;
@@ -335,7 +343,7 @@ section h3::after {
 }
 
 .education .year {
-  background: var(--light-blue);
+  background: var(--mandarin);
   color: var(--white);
   font-weight: 700;
   font-size: 10.8px;
