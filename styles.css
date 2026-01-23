@@ -1,24 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --navy: #004698;
-  --white: rgb(255, 255, 255);
-  --mist: rgba(239, 239, 239, 0.5);
-  --accent: #004698;
-  --teal: #004698;
-  --cyan: rgba(0, 70, 152, 0.7);
-  --ice: rgba(0, 70, 152, 0.35);
-  --mint: rgba(0, 70, 152, 0.15);
-  --sky: rgba(0, 70, 152, 0.35);
-  --frost: rgb(240, 244, 250);
+  --primary: #004698;
+  --secondary: #dc1d22;
+  --white: #ffffff;
+  --mist: rgba(235, 239, 245, 0.8);
+  --accent: var(--primary);
+  --frost: rgb(245, 248, 252);
   --white-20: rgba(255, 255, 255, 0.2);
-  --blue: #dc1d22;
   --white-40: rgba(255, 255, 255, 0.4);
   --white-80: rgba(255, 255, 255, 0.8);
-  --ink: rgb(20, 24, 33);
-  --text: var(--ink);
-  --muted: rgb(0, 0, 0);
+  --ink: rgb(16, 23, 36);
+  --text: rgb(32, 39, 55);
+  --muted: rgba(16, 23, 36, 0.72);
   --bg: var(--white);
+  --primary-soft: rgba(0, 70, 152, 0.12);
+  --primary-soft-2: rgba(0, 70, 152, 0.2);
+  --secondary-soft: rgba(220, 29, 34, 0.18);
 }
 
 * {
@@ -29,7 +27,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background: var(--mist);
+  background: linear-gradient(140deg, rgba(0, 70, 152, 0.08), rgba(220, 29, 34, 0.06), var(--mist));
   color: var(--text);
   font-size: 12.5px;
   letter-spacing: 0.1px;
@@ -40,14 +38,14 @@ body {
   width: 210mm;
   height: 297mm;
   margin: 0 auto;
-  background: linear-gradient(150deg, var(--white), rgba(0, 70, 152, 0.08), var(--white-20));
+  background: linear-gradient(150deg, var(--white), rgba(0, 70, 152, 0.06) 40%, rgba(220, 29, 34, 0.05));
   display: grid;
   grid-template-columns: 2.2fr 1fr;
   gap: 20px;
   padding: 10mm 14mm;
-  border-radius: 18px;
-  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.18);
-  border: 1px solid var(--white-20);
+  border-radius: 22px;
+  box-shadow: 0 26px 50px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(0, 70, 152, 0.12);
 }
 
 .page + .page {
@@ -73,25 +71,25 @@ body {
 }
 
 .right > section {
-  background: var(--white-80);
-  border: 1px solid var(--white-40);
+  background: linear-gradient(140deg, var(--white), rgba(0, 70, 152, 0.04));
+  border: 1px solid rgba(0, 70, 152, 0.15);
   border-left: 4px solid var(--accent);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 12px 14px;
-  box-shadow: 0 12px 18px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.1);
 }
 
 .hero h1 {
   font-size: 34px;
   letter-spacing: 1.6px;
-  color: var(--ink);
+  color: var(--primary);
   font-weight: 800;
 }
 
 .hero h2 {
   font-size: 14.5px;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--secondary);
   margin-top: 8px;
   font-weight: 600;
   letter-spacing: 0.6px;
@@ -99,7 +97,7 @@ body {
 
 section h3 {
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--primary);
   font-weight: 800;
   font-size: 15px;
   margin-bottom: 10px;
@@ -109,19 +107,19 @@ section h3 {
 section h3::after {
   content: "";
   display: block;
-  width: 34px;
+  width: 38px;
   height: 3px;
   border-radius: 999px;
-  background: linear-gradient(120deg, var(--accent), var(--cyan), var(--blue));
+  background: linear-gradient(120deg, var(--primary), var(--secondary));
   margin-top: 6px;
 }
 
 .letter-content {
-  background: var(--frost);
+  background: linear-gradient(160deg, var(--white), rgba(0, 70, 152, 0.05));
   border-radius: 18px;
   padding: 14mm 12mm;
   box-shadow: 0 18px 30px rgba(0, 0, 0, 0.14);
-  border: 1px solid var(--white-40);
+  border: 1px solid rgba(0, 70, 152, 0.12);
 }
 
 .letter-header {
@@ -133,7 +131,7 @@ section h3::after {
 
 .letter-header h1 {
   font-size: 26px;
-  color: var(--ink);
+  color: var(--primary);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1.4px;
@@ -141,7 +139,7 @@ section h3::after {
 
 .letter-role {
   font-size: 11px;
-  color: var(--ink);
+  color: var(--secondary);
   font-weight: 600;
   margin-top: 8px;
   text-transform: uppercase;
@@ -151,7 +149,7 @@ section h3::after {
 .letter-contact {
   text-align: right;
   font-size: 10.6px;
-  color: var(--ink);
+  color: var(--muted);
   font-weight: 600;
   display: flex;
   flex-direction: column;
@@ -160,7 +158,7 @@ section h3::after {
 
 .letter-divider {
   height: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--cyan), transparent);
+  background: linear-gradient(90deg, var(--primary), var(--secondary), transparent);
   margin: 12px 0 10px;
 }
 
@@ -170,12 +168,12 @@ section h3::after {
   align-items: baseline;
   gap: 12px;
   font-size: 12px;
-  color: var(--ink);
+  color: var(--muted);
   font-weight: 600;
 }
 
 .letter-subject {
-  color: var(--ink);
+  color: var(--primary);
   font-weight: 700;
 }
 
@@ -198,13 +196,13 @@ section h3::after {
 
 .letter-greeting {
   font-weight: 600;
-  color: var(--ink);
+  color: var(--primary);
 }
 
 .letter-signature {
   margin-top: 16px;
   font-weight: 600;
-  color: var(--ink);
+  color: var(--secondary);
 }
 
 .profile p {
@@ -220,7 +218,7 @@ section h3::after {
 }
 
 .chips span {
-  background: var(--blue);
+  background: var(--secondary);
   color: var(--white);
   padding: 6px 12px;
   border-radius: 999px;
@@ -248,7 +246,7 @@ section h3::after {
 
 .role .title {
   font-weight: 700;
-  color: var(--ink);
+  color: var(--primary);
   font-size: 13.2px;
 }
 
@@ -262,15 +260,15 @@ section h3::after {
 .role .employer {
   font-size: 13.2px;
   font-weight: 600;
-  color: var(--ink);
+  color: var(--text);
 }
 
 .role .period {
   font-size: 11px;
   font-weight: 600;
-  color: var(--ink);
-  background: var(--mint);
-  border: 1px solid var(--accent);
+  color: var(--primary);
+  background: var(--primary-soft);
+  border: 1px solid var(--primary-soft-2);
   padding: 3px 10px;
   border-radius: 999px;
   white-space: nowrap;
@@ -296,11 +294,11 @@ section h3::after {
 
 .photo-card {
   padding: 10px;
-  background: var(--white-80);
-  border-radius: 10px;
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.18);
+  background: linear-gradient(160deg, rgba(0, 70, 152, 0.08), rgba(220, 29, 34, 0.1));
+  border-radius: 12px;
+  box-shadow: 0 16px 26px rgba(0, 0, 0, 0.18);
   transform: rotate(-2deg);
-  border: 2px solid var(--accent);
+  border: 2px solid var(--secondary);
 }
 
 .photo-card img {
@@ -315,13 +313,14 @@ section h3::after {
   gap: 10px;
   font-size: 12px;
   font-weight: 600;
-  color: var(--ink);
+  color: var(--primary);
   margin-top: -2px;
 }
 
 .contact p {
   font-size: 12px;
   margin-bottom: 6px;
+  color: var(--muted);
 }
 
 .skills ul,
@@ -334,12 +333,12 @@ section h3::after {
   margin: 0;
   font-size: 11.2px;
   font-weight: 600;
-  color: var(--ink);
+  color: var(--text);
 }
 
 .skills li::marker,
 .languages li::marker {
-  color: var(--accent);
+  color: var(--secondary);
 }
 
 .education .edu-item {
@@ -350,7 +349,7 @@ section h3::after {
 }
 
 .education .year {
-  background: var(--accent);
+  background: var(--secondary);
   color: var(--white);
   font-weight: 700;
   font-size: 10.8px;
@@ -367,7 +366,7 @@ section h3::after {
 
 .education p {
   font-size: 11.2px;
-  color: var(--ink);
+  color: var(--text);
 }
 
 @page {
