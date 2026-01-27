@@ -1,30 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
-/* LTR defaults for layout and PDF text order. */
-html,
-body {
+/* =========================================================
+   Global LTR / PDF text order safety
+   ========================================================= */
+html, body {
   direction: ltr;
   unicode-bidi: isolate;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
 
-@media print {
-  @page {
-    size: A4;
-    margin: 0;
-  }
-  
-  html,
-  body {
-    width: 210mm;
-    height: 297mm;
-    margin: 0;
-    padding: 0;
-    direction: ltr;
-    writing-mode: horizontal-tb;
-  }
+/* Keep bidi stable inside the page content (helps some PDF text-layer cases) */
+.page, .page * {
+  direction: ltr;
+  unicode-bidi: isolate;
 }
+
+/* =========================================================
+   Theme
+   ========================================================= */
 :root {
   --primary: #004698;
   --secondary: #dc1d22;
@@ -59,6 +53,9 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* =========================================================
+   Page layout (screen)
+   ========================================================= */
 .page {
   width: 210mm;
   height: 297mm;
@@ -71,6 +68,7 @@ body {
   border-radius: 22px;
   box-shadow: 0 26px 50px rgba(0, 0, 0, 0.18);
   border: 1px solid rgba(0, 70, 152, 0.12);
+  overflow: hidden; /* prevents 1-2px spill causing blank pages in some print engines */
 }
 
 .page + .page {
@@ -104,6 +102,9 @@ body {
   box-shadow: 0 14px 24px rgba(0, 0, 0, 0.1);
 }
 
+/* =========================================================
+   Typo blocks
+   ========================================================= */
 .hero h1 {
   font-size: 34px;
   letter-spacing: 1.6px;
@@ -139,116 +140,10 @@ section h3::after {
   margin-top: 6px;
 }
 
-.letter-content {
-  background: linear-gradient(160deg, var(--white), rgba(0, 70, 152, 0.05));
-  border-radius: 18px;
-  padding: 14mm 12mm;
-  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.14);
-  border: 1px solid rgba(0, 70, 152, 0.12);
-}
-
-.letter-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.letter-header h1 {
-  font-size: 26px;
-  color: var(--primary);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1.4px;
-}
-
-.letter-role {
-  font-size: 11px;
-  color: var(--secondary);
-  font-weight: 600;
-  margin-top: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-}
-
-.letter-contact {
-  text-align: right;
-  font-size: 10.6px;
-  color: var(--muted);
-  font-weight: 600;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.letter-divider {
-  height: 2px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary), transparent);
-  margin: 12px 0 10px;
-}
-
-.letter-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 12px;
-  font-size: 12px;
-  color: var(--muted);
-  font-weight: 600;
-}
-
-.letter-subject {
-  color: var(--primary);
-  font-weight: 700;
-}
-
-.letter-date {
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-}
-
-.letter-body {
-  margin-top: 14px;
-  text-align: justify;
-}
-
-.letter-body p {
-  font-size: 12.1px;
-  line-height: 1.62;
-  margin-bottom: 10px;
-  color: var(--text);
-}
-
-.letter-greeting {
-  font-weight: 600;
-  color: var(--primary);
-}
-
-.letter-signature {
-  margin-top: 16px;
-  font-weight: 600;
-  color: var(--secondary);
-}
-
 .profile p {
   font-size: 12.4px;
   line-height: 1.45;
   margin-bottom: 10px;
-}
-
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.chips span {
-  background: var(--secondary);
-  color: var(--white);
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 600;
 }
 
 .experience article {
@@ -299,12 +194,6 @@ section h3::after {
   white-space: nowrap;
 }
 
-.experience p {
-  font-size: 12.2px;
-  margin-bottom: 6px;
-  text-align: justify;
-}
-
 .experience ul {
   padding-left: 18px;
   font-size: 11.6px;
@@ -332,16 +221,6 @@ section h3::after {
   display: block;
 }
 
-.language-emojis {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--primary);
-  margin-top: -2px;
-}
-
 .contact p {
   font-size: 12px;
   margin-bottom: 6px;
@@ -359,11 +238,6 @@ section h3::after {
   font-size: 11.2px;
   font-weight: 600;
   color: var(--text);
-}
-
-.skills li::marker,
-.languages li::marker {
-  color: var(--secondary);
 }
 
 .education .edu-item {
@@ -394,37 +268,133 @@ section h3::after {
   color: var(--text);
 }
 
+/* =========================================================
+   Letter page
+   ========================================================= */
+.letter-content {
+  background: linear-gradient(160deg, var(--white), rgba(0, 70, 152, 0.05));
+  border-radius: 18px;
+  padding: 14mm 12mm;
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.14);
+  border: 1px solid rgba(0, 70, 152, 0.12);
+}
+
+.letter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.letter-header h1 {
+  font-size: 26px;
+  color: var(--primary);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+}
+
+.letter-role {
+  font-size: 11px;
+  color: var(--secondary);
+  font-weight: 600;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.letter-contact {
+  text-align: right;
+  font-size: 10.6px;
+  color: var(--muted);
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.letter-divider {
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), transparent);
+  margin: 12px 0 10px;
+}
+
+.letter-body {
+  margin-top: 14px;
+  text-align: justify;
+}
+
+.letter-body p {
+  font-size: 12.1px;
+  line-height: 1.62;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.letter-greeting {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.letter-signature {
+  margin-top: 16px;
+  font-weight: 600;
+  color: var(--secondary);
+}
+
+/* =========================================================
+   Print (PDF export)
+   ========================================================= */
 @page {
   size: A4;
   margin: 0;
 }
 
 @media print {
-  body {
-    background: var(--frost);
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    writing-mode: horizontal-tb;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
+
+  /* kill the screen gap that can trigger a blank page in Safari */
+  .page + .page {
+    margin-top: 0 !important;
+  }
+
   .page {
-    margin: 0;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    /* deterministic page breaks */
     break-after: page;
     page-break-after: always;
-    border-radius: 0;
-    box-shadow: none;
+
+    /* prevent 1px overflow from creating extra pages */
+    overflow: hidden !important;
   }
-  .page + .page {
-    margin-top: 0;
-  }
-  .page:last-child {
+
+  .page:last-of-type {
     break-after: auto;
     page-break-after: auto;
   }
+
   .right > section,
   .photo-card,
   .letter-content {
-    box-shadow: none;
-    filter: none;
+    box-shadow: none !important;
+    filter: none !important;
   }
+
+  .photo-card {
+    transform: none !important;
+  }
+}
+
   .photo-card {
     transform: none;
   }
