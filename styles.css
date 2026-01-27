@@ -1,23 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 /* Принудительный LTR для всего документа + PDF-печати */
+/* LTR fix for PDF text layer (safe version) */
 html, body {
   direction: ltr !important;
-  unicode-bidi: plaintext !important;   /* или embed, если plaintext не сработает */
-  text-align: left !important;
+  unicode-bidi: isolate !important;
 }
 
-*, *::before, *::after {
+/* Страховка для вложенных блоков */
+.page, .page * {
   direction: ltr !important;
-  unicode-bidi: plaintext !important;   /* plaintext лучше всего ломает bidi-алгоритм */
-  text-align: left !important;
+  unicode-bidi: isolate !important;
 }
 
-/* Дополнительно для print, чтобы PDF-рендер не "передумал" */
+/* На печать — ещё раз, чтобы движок не "передумал" */
 @media print {
   html, body, .page, .page * {
     direction: ltr !important;
-    unicode-bidi: plaintext !important;
-    text-align: left !important;
+    unicode-bidi: isolate !important;
   }
 }
 :root {
