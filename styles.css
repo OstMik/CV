@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
-/* Исправленный блок LTR */
-html, body {
-  direction: ltr; /* Убрали !important и unicode-bidi */
-  -webkit-print-color-adjust: exact; /* Чтобы печатались фоны */
+/* LTR defaults for layout and PDF text order. */
+html,
+body {
+  direction: ltr;
+  unicode-bidi: isolate;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
-
-/* Удалите блок .page, .page * с unicode-bidi */
 
 @media print {
   @page {
@@ -15,11 +15,14 @@ html, body {
     margin: 0;
   }
   
-  html, body {
+  html,
+  body {
     width: 210mm;
     height: 297mm;
-    /* Убеждаемся, что направление слева-направо */
-    direction: ltr; 
+    margin: 0;
+    padding: 0;
+    direction: ltr;
+    writing-mode: horizontal-tb;
   }
 }
 :root {
@@ -404,9 +407,17 @@ section h3::after {
   }
   .page {
     margin: 0;
+    break-after: page;
     page-break-after: always;
     border-radius: 0;
     box-shadow: none;
+  }
+  .page + .page {
+    margin-top: 0;
+  }
+  .page:last-child {
+    break-after: auto;
+    page-break-after: auto;
   }
   .right > section,
   .photo-card,
