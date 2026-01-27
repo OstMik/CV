@@ -390,7 +390,7 @@ section h3::after {
   .photo-card,
   .letter-content {
     box-shadow: none;
-    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.14));
+    filter: none;
   }
   .photo-card {
     transform: none;
