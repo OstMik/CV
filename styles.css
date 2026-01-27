@@ -6,8 +6,6 @@
 html, body {
   direction: ltr;
   unicode-bidi: isolate;
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
 }
 
 /* Keep bidi stable inside the page content (helps some PDF text-layer cases) */
@@ -340,62 +338,4 @@ section h3::after {
   margin-top: 16px;
   font-weight: 600;
   color: var(--secondary);
-}
-
-/* =========================================================
-   Print (PDF export)
-   ========================================================= */
-@page {
-  size: A4;
-  margin: 0;
-}
-
-@media print {
-  html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-    background: #fff !important;
-    writing-mode: horizontal-tb;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  /* kill the screen gap that can trigger a blank page in Safari */
-  .page + .page {
-    margin-top: 0 !important;
-  }
-
-  .page {
-    margin: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-
-    /* deterministic page breaks */
-    break-after: page;
-    page-break-after: always;
-
-    /* prevent 1px overflow from creating extra pages */
-    overflow: hidden !important;
-  }
-
-  .page:last-of-type {
-    break-after: auto;
-    page-break-after: auto;
-  }
-
-  .right > section,
-  .photo-card,
-  .letter-content {
-    box-shadow: none !important;
-    filter: none !important;
-  }
-
-  .photo-card {
-    transform: none !important;
-  }
-}
-
-  .photo-card {
-    transform: none;
-  }
 }
