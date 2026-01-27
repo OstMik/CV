@@ -75,7 +75,8 @@ body {
 
 .page.letter {
   grid-template-columns: 1fr;
-  padding: 16mm 14mm;
+  padding: 0;
+  background: var(--white);
 }
 
 .left {
@@ -275,6 +276,7 @@ section h3::after {
   padding: 14mm 12mm;
   box-shadow: none;
   border: none;
+  min-height: 100%;
 }
 
 .letter-header {
