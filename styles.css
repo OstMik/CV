@@ -1,15 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
-/* --- PDF/LTR FIX (вставить сюда) --- */
+/* Принудительный LTR для всего документа + PDF-печати */
 html, body {
-  direction: ltr;
-  unicode-bidi: normal;
+  direction: ltr !important;
+  unicode-bidi: plaintext !important;   /* или embed, если plaintext не сработает */
+  text-align: left !important;
 }
 
-* {
-  direction: ltr;
-  unicode-bidi: normal;
+*, *::before, *::after {
+  direction: ltr !important;
+  unicode-bidi: plaintext !important;   /* plaintext лучше всего ломает bidi-алгоритм */
+  text-align: left !important;
 }
-/* --- /PDF/LTR FIX --- */
+
+/* Дополнительно для print, чтобы PDF-рендер не "передумал" */
+@media print {
+  html, body, .page, .page * {
+    direction: ltr !important;
+    unicode-bidi: plaintext !important;
+    text-align: left !important;
+  }
+}
 :root {
   --primary: #004698;
   --secondary: #dc1d22;
