@@ -339,3 +339,21 @@ section h3::after {
   font-weight: 600;
   color: var(--secondary);
 }
+@media print {
+  body {
+    background: #fff !important;
+  }
+
+  .page {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .right > section,
+  .photo-card,
+  .letter-content {
+    box-shadow: none !important;
+    filter: none !important;
+  }
+}
