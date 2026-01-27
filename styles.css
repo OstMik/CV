@@ -1,22 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
-/* Принудительный LTR для всего документа + PDF-печати */
-/* LTR fix for PDF text layer (safe version) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+/* Исправленный блок LTR */
 html, body {
-  direction: ltr !important;
-  unicode-bidi: isolate !important;
+  direction: ltr; /* Убрали !important и unicode-bidi */
+  -webkit-print-color-adjust: exact; /* Чтобы печатались фоны */
 }
 
-/* Страховка для вложенных блоков */
-.page, .page * {
-  direction: ltr !important;
-  unicode-bidi: isolate !important;
-}
+/* Удалите блок .page, .page * с unicode-bidi */
 
-/* На печать — ещё раз, чтобы движок не "передумал" */
 @media print {
-  html, body, .page, .page * {
-    direction: ltr !important;
-    unicode-bidi: isolate !important;
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  
+  html, body {
+    width: 210mm;
+    height: 297mm;
+    /* Убеждаемся, что направление слева-направо */
+    direction: ltr; 
   }
 }
 :root {
