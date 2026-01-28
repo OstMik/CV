@@ -359,6 +359,8 @@ section h3::after {
     font-family: 'Montserrat', sans-serif;
     font-size: 12pt;
     line-height: 1.4;
+    unicode-bidi: normal !important;
+    direction: ltr !important;
     /* Удаляем принудительное сохранение цвета */
     -webkit-print-color-adjust: economy !important;
     print-color-adjust: economy !important;
@@ -405,5 +407,7 @@ section h3::after {
   * {
     box-shadow: none !important;
     text-shadow: none !important;
+    letter-spacing: normal !important;
+    text-rendering: geometricPrecision !important;
   }
 }
