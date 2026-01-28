@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@600;700&display=swap');
 
 /* =========================================================
    Global LTR / PDF text order safety
@@ -43,7 +43,7 @@ html, body {
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   background: var(--white);
   color: var(--text);
   font-size: 12.5px;
@@ -105,6 +105,7 @@ body {
    Typo blocks
    ========================================================= */
 .hero h1 {
+  font-family: 'IBM Plex Serif', 'Georgia', 'Times New Roman', serif;
   font-size: 34px;
   letter-spacing: 1.6px;
   color: var(--primary);
@@ -121,6 +122,7 @@ body {
 }
 
 section h3 {
+  font-family: 'IBM Plex Serif', 'Georgia', 'Times New Roman', serif;
   text-transform: uppercase;
   color: var(--primary);
   font-weight: 800;
@@ -287,6 +289,7 @@ section h3::after {
 }
 
 .letter-header h1 {
+  font-family: 'IBM Plex Serif', 'Georgia', 'Times New Roman', serif;
   font-size: 26px;
   color: var(--primary);
   font-weight: 800;
@@ -355,24 +358,20 @@ section h3::after {
     min-height: 297mm !important;
     height: auto !important;
     background: white !important;
-    color: black !important;
-    -webkit-print-color-adjust: economy !important;   /* или убрать совсем */
-    print-color-adjust: economy !important;
+    color: #111827 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
-  /* Самое важное для Chrome + macOS — убираем триггеры реверса текста */
   * {
     letter-spacing: normal !important;           /* ← ключевое */
     font-variant-ligatures: none !important;     /* на всякий случай */
   }
 
-  /* Montserrat часто виноват — меняем на безопасный аналог */
-  body, .page, .letter-content, h1, h2, h3, p, li, span {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-    /* или "Inter", system-ui, sans-serif — если есть локально */
+  body, .page, .letter-content, p, li, span {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", serif !important;
   }
 
-  /* Возвращаем нормальное поведение bidi (для чистоты) */
   html, body, .page, .page * {
     unicode-bidi: normal !important;
     direction: ltr !important;
@@ -381,28 +380,108 @@ section h3::after {
   .page {
     width: 210mm !important;
     min-height: auto !important;
-    padding: 8mm 10mm !important;
+    padding: 9mm 11mm !important;
     margin: 0 !important;
     background: white !important;
     background-image: none !important;
     box-shadow: none !important;
-    border: none !important;
+    border: 1px solid #d9dde5 !important;
     overflow: visible !important;
     break-inside: auto;
+    column-gap: 16px !important;
+    row-gap: 14px !important;
   }
 
-  /* Убираем декоративные эффекты, которые плохо печатаются */
+  .page.letter {
+    border: 1px solid #d9dde5 !important;
+    padding: 0 !important;
+  }
+
+  .left {
+    gap: 16px !important;
+  }
+
+  .right {
+    gap: 12px !important;
+  }
+
   .photo-card,
   .right > section {
-    background: white !important;
+    background: #f6f7f9 !important;
     background-image: none !important;
     box-shadow: none !important;
-    border: 1px solid #ddd !important;
+    border: 1px solid #ccd2dc !important;
+    border-left: 3px solid #2f3b54 !important;
     transform: none !important;
     filter: none !important;
   }
 
-  /* Контроль разрывов страниц — must-have */
+  .photo-card {
+    padding: 8px !important;
+  }
+
+  section h3 {
+    font-family: "Gill Sans", "Helvetica Neue", Arial, sans-serif !important;
+    color: #1f2a44 !important;
+    letter-spacing: 0.6px !important;
+  }
+
+  section h3::after {
+    width: 32px !important;
+    height: 2px !important;
+    background: #1f2a44 !important;
+  }
+
+  .hero h1,
+  .letter-header h1 {
+    font-family: "Gill Sans", "Helvetica Neue", Arial, sans-serif !important;
+    letter-spacing: 1px !important;
+    color: #1f2a44 !important;
+  }
+
+  .hero h2,
+  .letter-role {
+    color: #5b6474 !important;
+    letter-spacing: 0.3px !important;
+  }
+
+  .role .title {
+    color: #1f2a44 !important;
+  }
+
+  .role .period {
+    background: #eef1f6 !important;
+    border: 1px solid #c7cdd8 !important;
+    color: #1f2a44 !important;
+  }
+
+  .experience article {
+    border-bottom: 1px solid #e3e6ec !important;
+  }
+
+  .experience ul {
+    color: #1f2937 !important;
+  }
+
+  .contact p {
+    color: #4b5563 !important;
+  }
+
+  .education .year {
+    background: #1f2a44 !important;
+    color: #ffffff !important;
+  }
+
+  .letter-content {
+    background: white !important;
+    padding: 12mm 12mm 14mm !important;
+  }
+
+  .letter-divider {
+    height: 1px !important;
+    background: #1f2a44 !important;
+  }
+
   h1, h2, h3, .role, .photo-card, article, section, .letter-body > p {
     break-inside: avoid;
     page-break-inside: avoid;
@@ -421,15 +500,14 @@ section h3::after {
     page-break-inside: avoid;
   }
 
-  /* Тонкая настройка типографики для бумаги */
   body {
     font-size: 11.5pt !important;
     line-height: 1.42 !important;
   }
 
   h1 { font-size: 22pt !important; }
-  h2 { font-size: 14pt !important; }
-  h3 { font-size: 12.5pt !important; }
+  h2 { font-size: 13.5pt !important; }
+  h3 { font-size: 12pt !important; }
   .experience li, .skills li, .languages li {
     font-size: 10.8pt !important;
     line-height: 1.38 !important;
