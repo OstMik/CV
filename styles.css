@@ -345,84 +345,93 @@ section h3::after {
 @media print {
   @page {
     size: A4 portrait;
-    margin: 8mm 10mm 12mm 10mm;  /* чуть больше снизу — для подписи/баланса */
+    margin: 10mm 12mm 12mm 12mm;   /* чуть больше снизу — место под подпись */
   }
 
-  html,
-  body {
+  html, body {
     margin: 0 !important;
     padding: 0 !important;
     width: 210mm !important;
+    min-height: 297mm !important;
     height: auto !important;
-    min-height: 297mm !important;  /* стараемся дать место, но не заставляем */
-    background: #fff !important;
-    color: #000 !important;
-    font-size: 11.2pt !important;   /* чуть меньше 12pt → помогает уместить */
-    line-height: 1.35 !important;   /* баланс между читаемостью и компактностью */
-    -webkit-print-color-adjust: economy !important;
+    background: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: economy !important;   /* или убрать совсем */
     print-color-adjust: economy !important;
   }
 
-  .page,
-  .letter-content {
+  /* Самое важное для Chrome + macOS — убираем триггеры реверса текста */
+  * {
+    letter-spacing: normal !important;           /* ← ключевое */
+    font-variant-ligatures: none !important;     /* на всякий случай */
+  }
+
+  /* Montserrat часто виноват — меняем на безопасный аналог */
+  body, .page, .letter-content, h1, h2, h3, p, li, span {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    /* или "Inter", system-ui, sans-serif — если есть локально */
+  }
+
+  /* Возвращаем нормальное поведение bidi (для чистоты) */
+  html, body, .page, .page * {
+    unicode-bidi: normal !important;
+    direction: ltr !important;
+  }
+
+  .page {
     width: 210mm !important;
-    max-width: 210mm !important;
     min-height: auto !important;
+    padding: 8mm 10mm !important;
     margin: 0 !important;
-    padding: 9mm 11mm !important;   /* чуть меньше, чем было, но комфортно */
-    background: #fff !important;
+    background: white !important;
     background-image: none !important;
     box-shadow: none !important;
-    border-radius: 0 !important;
-    overflow: visible !important;
-  }
-
-  /* Убираем декоративные слои, которые могут влиять на layout/масштаб */
-  .photo-card {
-    transform: none !important;
-    box-shadow: none !important;
-    background: #fff !important;
-    border: none !important;        /* убираем border, чтобы не добавлять px */
-  }
-
-  .right > section {
-    background: #fff !important;
-    box-shadow: none !important;
     border: none !important;
+    overflow: visible !important;
+    break-inside: auto;
+  }
+
+  /* Убираем декоративные эффекты, которые плохо печатаются */
+  .photo-card,
+  .right > section {
+    background: white !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    transform: none !important;
     filter: none !important;
   }
 
-  /* Критические элементы — не рвать */
-  .photo-card,
-  .photo-card img,
-  .hero,
-  .letter-header {
-    page-break-inside: avoid;
+  /* Контроль разрывов страниц — must-have */
+  h1, h2, h3, .role, .photo-card, article, section, .letter-body > p {
     break-inside: avoid;
+    page-break-inside: avoid;
   }
 
-  /* НЕ заставляем avoid на всём подряд — иначе контент уезжает на 2+ страницы */
-  h1, h2, h3, .experience article, .right > section, p {
-    page-break-inside: auto !important;
-    break-inside: auto !important;
+  h2, h3, .role {
+    break-after: avoid;
+    page-break-after: avoid;
   }
 
-  /* Лёгкое сжатие интервалов — чтобы влезть, но без уродства */
-  .left  { gap: 14px !important; }
-  .right { gap: 11px !important; }
-
-  section h3          { margin-bottom: 7px !important; }
-  .profile p          { margin-bottom: 8px !important; }
-  .experience article { margin-bottom: 9px !important; padding-bottom: 7px !important; }
-  .experience li      { margin-bottom: 3.5px !important; }
-  .letter-body p      { margin-bottom: 9px !important; }
-
-  /* Глобально убираем тени — они часто вызывают "чёрные" артефакты или масштабирование */
-  * {
-    box-shadow: none !important;
-    text-shadow: none !important;
+  /* Фото не должно разрываться */
+  .photo-card img {
+    max-width: 45mm !important;   /* разумный размер для печати */
+    height: auto !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
-  /* Если фон всё же важен (акценты) — можно включить exact только на ключевых блоках */
-  /* .hero, .letter-divider { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } */
+  /* Тонкая настройка типографики для бумаги */
+  body {
+    font-size: 11.5pt !important;
+    line-height: 1.42 !important;
+  }
+
+  h1 { font-size: 22pt !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 12.5pt !important; }
+  .experience li, .skills li, .languages li {
+    font-size: 10.8pt !important;
+    line-height: 1.38 !important;
+  }
 }
