@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+Pro:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 /* =========================================================
    Global LTR / PDF text order safety
@@ -43,7 +43,7 @@ html, body {
 }
 
 body {
-  font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background: var(--white);
   color: var(--text);
   font-size: 12.5px;
@@ -105,7 +105,6 @@ body {
    Typo blocks
    ========================================================= */
 .hero h1 {
-  font-family: 'Libre Baskerville', 'Times New Roman', serif;
   font-size: 34px;
   letter-spacing: 1.6px;
   color: var(--primary);
@@ -122,7 +121,6 @@ body {
 }
 
 section h3 {
-  font-family: 'Libre Baskerville', 'Times New Roman', serif;
   text-transform: uppercase;
   color: var(--primary);
   font-weight: 800;
@@ -289,7 +287,6 @@ section h3::after {
 }
 
 .letter-header h1 {
-  font-family: 'Libre Baskerville', 'Times New Roman', serif;
   font-size: 26px;
   color: var(--primary);
   font-weight: 800;
@@ -348,7 +345,7 @@ section h3::after {
 @media print {
   @page {
     size: A4 portrait;
-    margin: 12mm 12mm 14mm 12mm;
+    margin: 10mm 12mm 12mm 12mm;   /* чуть больше снизу — место под подпись */
   }
 
   html, body {
@@ -358,9 +355,9 @@ section h3::after {
     min-height: 297mm !important;
     height: auto !important;
     background: white !important;
-    color: #101520 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
+    color: black !important;
+    -webkit-print-color-adjust: economy !important;   /* или убрать совсем */
+    print-color-adjust: economy !important;
   }
 
   /* Самое важное для Chrome + macOS — убираем триггеры реверса текста */
@@ -369,13 +366,10 @@ section h3::after {
     font-variant-ligatures: none !important;     /* на всякий случай */
   }
 
-  /* Безопасные печатные гарнитуры (без переменных шрифтов) */
-  body, .page, .letter-content, p, li, span {
-    font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif !important;
-  }
-
-  h1, h2, h3, .hero h1, .letter-header h1 {
-    font-family: "Libre Baskerville", "Times New Roman", serif !important;
+  /* Montserrat часто виноват — меняем на безопасный аналог */
+  body, .page, .letter-content, h1, h2, h3, p, li, span {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    /* или "Inter", system-ui, sans-serif — если есть локально */
   }
 
   /* Возвращаем нормальное поведение bidi (для чистоты) */
@@ -387,109 +381,25 @@ section h3::after {
   .page {
     width: 210mm !important;
     min-height: auto !important;
-    padding: 0 !important;
+    padding: 8mm 10mm !important;
     margin: 0 !important;
     background: white !important;
     background-image: none !important;
     box-shadow: none !important;
     border: none !important;
     overflow: visible !important;
-    display: grid !important;
-    grid-template-columns: 1.6fr 0.9fr !important;
-    column-gap: 10mm !important;
-    row-gap: 6mm !important;
     break-inside: auto;
-  }
-
-  .left, .right {
-    gap: 10px !important;
-  }
-
-  .hero h1 {
-    font-size: 22pt !important;
-    letter-spacing: 0.6px !important;
-  }
-
-  .hero h2 {
-    font-size: 12.5pt !important;
-    letter-spacing: 0.3px !important;
-  }
-
-  section h3 {
-    font-size: 12.5pt !important;
-    letter-spacing: 0.4px !important;
-    margin-bottom: 8px !important;
-  }
-
-  section h3::after {
-    width: 28px !important;
-    height: 2px !important;
-    background: #1b4a7a !important;
-  }
-
-  .profile p,
-  .experience ul,
-  .education p,
-  .letter-body p {
-    color: #1b2436 !important;
-  }
-
-  .experience article {
-    border-bottom: 1px solid #d7dde6 !important;
-    padding-bottom: 8px !important;
-    margin-bottom: 10px !important;
-  }
-
-  .role .title {
-    font-size: 11.5pt !important;
-    color: #1b4a7a !important;
-  }
-
-  .role .period {
-    font-size: 9.8pt !important;
-    background: #eef2f7 !important;
-    border: 1px solid #d7dde6 !important;
-    color: #2a3a55 !important;
-  }
-
-  .experience ul {
-    padding-left: 16px !important;
-    font-size: 10.4pt !important;
-    line-height: 1.4 !important;
   }
 
   /* Убираем декоративные эффекты, которые плохо печатаются */
   .photo-card,
   .right > section {
-    background: #f6f8fb !important;
+    background: white !important;
     background-image: none !important;
     box-shadow: none !important;
-    border: 1px solid #d7dde6 !important;
+    border: 1px solid #ddd !important;
     transform: none !important;
     filter: none !important;
-  }
-
-  .right > section {
-    border-left: 3px solid #1b4a7a !important;
-    padding: 10px 12px !important;
-  }
-
-  .contact p {
-    font-size: 10.4pt !important;
-    color: #2a3a55 !important;
-  }
-
-  .skills ul,
-  .languages ul {
-    font-size: 10.2pt !important;
-    font-weight: 600 !important;
-    color: #1b2436 !important;
-  }
-
-  .education .year {
-    background: #1b4a7a !important;
-    color: #ffffff !important;
-    font-size: 9.4pt !important;
   }
 
   /* Контроль разрывов страниц — must-have */
@@ -505,7 +415,7 @@ section h3::after {
 
   /* Фото не должно разрываться */
   .photo-card img {
-    max-width: 42mm !important;
+    max-width: 45mm !important;   /* разумный размер для печати */
     height: auto !important;
     break-inside: avoid;
     page-break-inside: avoid;
@@ -513,53 +423,15 @@ section h3::after {
 
   /* Тонкая настройка типографики для бумаги */
   body {
-    font-size: 11pt !important;
-    line-height: 1.45 !important;
+    font-size: 11.5pt !important;
+    line-height: 1.42 !important;
   }
 
+  h1 { font-size: 22pt !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 12.5pt !important; }
   .experience li, .skills li, .languages li {
-    font-size: 10.2pt !important;
+    font-size: 10.8pt !important;
     line-height: 1.38 !important;
-  }
-
-  .letter-content {
-    background: white !important;
-    padding: 0 !important;
-    border: 1px solid #d7dde6 !important;
-  }
-
-  .page.letter {
-    grid-template-columns: 1fr !important;
-    padding: 0 !important;
-  }
-
-  .letter-header {
-    padding: 10mm 12mm 0 !important;
-  }
-
-  .letter-divider {
-    height: 1px !important;
-    background: #1b4a7a !important;
-    margin: 8mm 12mm 6mm !important;
-  }
-
-  .letter-body {
-    margin-top: 0 !important;
-    padding: 0 12mm 10mm !important;
-  }
-
-  .letter-body p {
-    font-size: 11pt !important;
-    line-height: 1.58 !important;
-  }
-
-  .letter-contact {
-    font-size: 10pt !important;
-    color: #2a3a55 !important;
-  }
-
-  .letter-role {
-    font-size: 10.6pt !important;
-    color: #1b4a7a !important;
   }
 }
