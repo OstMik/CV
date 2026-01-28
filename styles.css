@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
 /* =========================================================
    Global LTR / PDF text order safety
    ========================================================= */
@@ -41,7 +43,7 @@ html, body {
 }
 
 body {
-  font-family: 'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background: var(--white);
   color: var(--text);
   font-size: 12.5px;
@@ -353,9 +355,9 @@ section h3::after {
     min-height: 297mm !important;
     height: auto !important;
     background: white !important;
-    color: #111827 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
+    color: black !important;
+    -webkit-print-color-adjust: economy !important;   /* или убрать совсем */
+    print-color-adjust: economy !important;
   }
 
   /* Самое важное для Chrome + macOS — убираем триггеры реверса текста */
@@ -364,14 +366,10 @@ section h3::after {
     font-variant-ligatures: none !important;     /* на всякий случай */
   }
 
-  /* Чистая пара шрифтов для печати без variable/fonts с плохим хинтингом */
-  body, .page, .letter-content, p, li, span {
-    font-family: "IBM Plex Serif", "Georgia", "Times New Roman", serif !important;
-  }
-
-  h1, h2, h3, .role .title, .role .employer {
-    font-family: "IBM Plex Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif !important;
-    font-weight: 700 !important;
+  /* Montserrat часто виноват — меняем на безопасный аналог */
+  body, .page, .letter-content, h1, h2, h3, p, li, span {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    /* или "Inter", system-ui, sans-serif — если есть локально */
   }
 
   /* Возвращаем нормальное поведение bidi (для чистоты) */
@@ -393,67 +391,15 @@ section h3::after {
     break-inside: auto;
   }
 
-  .page {
-    column-gap: 16px !important;
-  }
-
-  .left {
-    gap: 16px !important;
-  }
-
-  .right {
-    gap: 12px !important;
-  }
-
   /* Убираем декоративные эффекты, которые плохо печатаются */
   .photo-card,
   .right > section {
-    background: #ffffff !important;
-    background-image: none !important;
-    box-shadow: none !important;
-    border: 1px solid #d1d5db !important;
-    border-left: 3px solid #1f2937 !important;
-    transform: none !important;
-    filter: none !important;
-  }
-
-  .photo-card {
-    border-left-color: #334155 !important;
-    padding: 6px !important;
-  }
-
-  .photo-card img {
-    border-radius: 6px !important;
-  }
-
-  section h3 {
-    color: #1f2937 !important;
-    letter-spacing: 0.6px !important;
-  }
-
-  section h3::after {
-    background: #1f2937 !important;
-  }
-
-  .role .period {
-    background: #f3f4f6 !important;
-    border-color: #e5e7eb !important;
-    color: #374151 !important;
-  }
-
-  .experience article {
-    border-bottom: 1px solid #e5e7eb !important;
-  }
-
-  .letter-content {
     background: white !important;
     background-image: none !important;
-    border: 1px solid #d1d5db !important;
-    padding: 12mm 12mm !important;
-  }
-
-  .letter-divider {
-    background: #1f2937 !important;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    transform: none !important;
+    filter: none !important;
   }
 
   /* Контроль разрывов страниц — must-have */
@@ -477,15 +423,15 @@ section h3::after {
 
   /* Тонкая настройка типографики для бумаги */
   body {
-    font-size: 11.4pt !important;
-    line-height: 1.5 !important;
+    font-size: 11.5pt !important;
+    line-height: 1.42 !important;
   }
 
-  h1 { font-size: 21pt !important; }
-  h2 { font-size: 13.5pt !important; }
-  h3 { font-size: 12.2pt !important; }
+  h1 { font-size: 22pt !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 12.5pt !important; }
   .experience li, .skills li, .languages li {
-    font-size: 10.6pt !important;
-    line-height: 1.4 !important;
+    font-size: 10.8pt !important;
+    line-height: 1.38 !important;
   }
 }
