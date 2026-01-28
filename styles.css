@@ -345,65 +345,93 @@ section h3::after {
 @media print {
   @page {
     size: A4 portrait;
-    margin: 10mm;
+    margin: 10mm 12mm 12mm 12mm;   /* чуть больше снизу — место под подпись */
   }
 
-  html,
-  body {
-    width: 210mm;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    background: #fff !important;
-    color: #000 !important;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12pt;
-    line-height: 1.4;
-    /* Удаляем принудительное сохранение цвета */
-    -webkit-print-color-adjust: economy !important;
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 210mm !important;
+    min-height: 297mm !important;
+    height: auto !important;
+    background: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: economy !important;   /* или убрать совсем */
     print-color-adjust: economy !important;
   }
 
-  .page,
-  .letter-content {
-    width: 100% !important;
-    min-height: auto !important;
-    background: none !important;
-    background-color: #fff !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-    overflow: visible !important;
-  }
-
-  .right > section,
-  .photo-card {
-    background: none !important;
-    background-color: #fff !important;
-    box-shadow: none !important;
-    filter: none !important;
-    border: 1px solid #ccc !important; /* тонкая граница, если нужно */
-  }
-
-  .photo-card img {
-    max-width: 100% !important;
-    height: auto !important;
-    page-break-inside: avoid;
-  }
-
-  /* Скрываем элементы, не нужные в печати */
-  nav, footer, .no-print {
-    display: none !important;
-  }
-
-  /* Избегаем разрывов в ключевых местах */
-  h1, h2, h3, p, img, .role, .experience article {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-
-  /* Обнуляем лишние отступы */
+  /* Самое важное для Chrome + macOS — убираем триггеры реверса текста */
   * {
+    letter-spacing: normal !important;           /* ← ключевое */
+    font-variant-ligatures: none !important;     /* на всякий случай */
+  }
+
+  /* Montserrat часто виноват — меняем на безопасный аналог */
+  body, .page, .letter-content, h1, h2, h3, p, li, span {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    /* или "Inter", system-ui, sans-serif — если есть локально */
+  }
+
+  /* Возвращаем нормальное поведение bidi (для чистоты) */
+  html, body, .page, .page * {
+    unicode-bidi: normal !important;
+    direction: ltr !important;
+  }
+
+  .page {
+    width: 210mm !important;
+    min-height: auto !important;
+    padding: 8mm 10mm !important;
+    margin: 0 !important;
+    background: white !important;
+    background-image: none !important;
     box-shadow: none !important;
-    text-shadow: none !important;
+    border: none !important;
+    overflow: visible !important;
+    break-inside: auto;
+  }
+
+  /* Убираем декоративные эффекты, которые плохо печатаются */
+  .photo-card,
+  .right > section {
+    background: white !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  /* Контроль разрывов страниц — must-have */
+  h1, h2, h3, .role, .photo-card, article, section, .letter-body > p {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  h2, h3, .role {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Фото не должно разрываться */
+  .photo-card img {
+    max-width: 45mm !important;   /* разумный размер для печати */
+    height: auto !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Тонкая настройка типографики для бумаги */
+  body {
+    font-size: 11.5pt !important;
+    line-height: 1.42 !important;
+  }
+
+  h1 { font-size: 22pt !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 12.5pt !important; }
+  .experience li, .skills li, .languages li {
+    font-size: 10.8pt !important;
+    line-height: 1.38 !important;
   }
 }
