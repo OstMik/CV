@@ -350,58 +350,92 @@ section h3::after {
 
   html,
   body {
-    width: 210mm;
-    height: auto;
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
     background: #fff !important;
     color: #000 !important;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12pt;
-    line-height: 1.4;
-    /* Удаляем принудительное сохранение цвета */
+
+    /* чуть компактнее, чтобы гарантировать 1 страницу */
+    font-size: 11pt !important;
+    line-height: 1.32 !important;
+
     -webkit-print-color-adjust: economy !important;
     print-color-adjust: economy !important;
+
+    height: auto !important;
+    min-height: 0 !important;
   }
 
-  .page,
-  .letter-content {
+  /* Ключ: фиксируем ширину в печати предсказуемо */
+  .page {
     width: 100% !important;
+    margin: 0 !important;
+
+    /* убираем все фоны/градиенты */
+    background: none !important;
+    background-color: #fff !important;
+
+    /* делаем контент компактнее для 1 страницы */
+    padding: 8mm 10mm !important;
+
+    box-shadow: none !important;
+    border-radius: 0 !important;
+
+    /* важно: не режем контент */
+    overflow: visible !important;
+
+    /* не заставляем высоту */
     min-height: auto !important;
+  }
+
+  .letter-content {
     background: none !important;
     background-color: #fff !important;
     box-shadow: none !important;
-    border-radius: 0 !important;
-    overflow: visible !important;
+    min-height: auto !important;
+  }
+
+  /* Убираем “эффекты”, которые могут давать переполнение */
+  .photo-card {
+    transform: none !important;
+    box-shadow: none !important;
   }
 
   .right > section,
   .photo-card {
-    background: none !important;
-    background-color: #fff !important;
     box-shadow: none !important;
     filter: none !important;
-    border: 1px solid #ccc !important; /* тонкая граница, если нужно */
+
+    /* ВАЖНО: НЕ добавляем рамку в print (она добавляет высоту + может влиять на перенос) */
+    border: none !important;
+    background: none !important;
+    background-color: #fff !important;
   }
 
-  .photo-card img {
-    max-width: 100% !important;
-    height: auto !important;
-    page-break-inside: avoid;
-  }
-
-  /* Скрываем элементы, не нужные в печати */
-  nav, footer, .no-print {
-    display: none !important;
-  }
-
-  /* Избегаем разрывов в ключевых местах */
-  h1, h2, h3, p, img, .role, .experience article {
+  /* Разрывы: оставляем avoid только там, где реально нужно */
+  img,
+  .photo-card {
     page-break-inside: avoid;
     break-inside: avoid;
   }
 
-  /* Обнуляем лишние отступы */
+  /* НЕ делаем avoid на p / article / h3 — иначе переносит целиком */
+  h1, h2, h3, p,
+  .experience article,
+  .right > section {
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  /* Немного ужимаем вертикальные интервалы */
+  .left { gap: 12px !important; }
+  .right { gap: 10px !important; }
+  section h3 { margin-bottom: 6px !important; }
+  .profile p { margin-bottom: 7px !important; }
+  .experience article { margin-bottom: 8px !important; padding-bottom: 6px !important; }
+  .experience li { margin-bottom: 3px !important; }
+
+  /* На всякий случай убираем тени у всего */
   * {
     box-shadow: none !important;
     text-shadow: none !important;
