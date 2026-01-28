@@ -34,6 +34,9 @@ html, body {
   --primary-soft: rgba(0, 70, 152, 0.12);
   --primary-soft-2: rgba(0, 70, 152, 0.2);
   --secondary-soft: rgba(220, 29, 34, 0.18);
+  --page-border: rgba(0, 70, 152, 0.12);
+  --card-border: rgba(0, 70, 152, 0.18);
+  --card-accent: rgba(0, 70, 152, 0.85);
 }
 
 * {
@@ -44,10 +47,10 @@ html, body {
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background: var(--white);
+  background: var(--frost);
   color: var(--text);
   font-size: 12.5px;
-  letter-spacing: 0.1px;
+  letter-spacing: normal;
   text-rendering: optimizeLegibility;
 }
 
@@ -58,14 +61,14 @@ body {
   width: min(100%, 210mm);
   min-height: 297mm;
   margin: 0 auto;
-  background: radial-gradient(circle at center, rgba(0, 70, 152, 0.08) 0%, rgba(220, 29, 34, 0.05) 45%, #ffffff 100%);
+  background: var(--white);
   display: grid;
   grid-template-columns: 2.2fr 1fr;
   gap: 20px;
   padding: 10mm 14mm;
   border-radius: 0;
   box-shadow: none;
-  border: none;
+  border: 1px solid var(--page-border);
   overflow: hidden; /* prevents 1-2px spill causing blank pages in some print engines */
 }
 
@@ -93,12 +96,12 @@ body {
 }
 
 .right > section {
-  background: linear-gradient(140deg, var(--white), rgba(0, 70, 152, 0.04));
-  border: 1px solid rgba(0, 70, 152, 0.15);
-  border-left: 4px solid var(--accent);
+  background: var(--white);
+  border: 1px solid var(--card-border);
+  border-left: 4px solid var(--card-accent);
   border-radius: 16px;
   padding: 12px 14px;
-  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
 }
 
 /* =========================================================
@@ -106,7 +109,6 @@ body {
    ========================================================= */
 .hero h1 {
   font-size: 34px;
-  letter-spacing: 1.6px;
   color: var(--primary);
   font-weight: 800;
 }
@@ -117,7 +119,6 @@ body {
   color: var(--secondary);
   margin-top: 8px;
   font-weight: 600;
-  letter-spacing: 0.6px;
 }
 
 section h3 {
@@ -126,7 +127,6 @@ section h3 {
   font-weight: 800;
   font-size: 15px;
   margin-bottom: 10px;
-  letter-spacing: 1px;
 }
 
 section h3::after {
@@ -135,7 +135,7 @@ section h3::after {
   width: 38px;
   height: 3px;
   border-radius: 999px;
-  background: linear-gradient(120deg, var(--primary), var(--secondary));
+  background: var(--primary);
   margin-top: 6px;
 }
 
@@ -207,10 +207,10 @@ section h3::after {
 
 .photo-card {
   padding: 10px;
-  background: linear-gradient(160deg, rgba(0, 70, 152, 0.08), rgba(220, 29, 34, 0.1));
+  background: var(--white);
   border-radius: 12px;
-  box-shadow: 0 16px 26px rgba(0, 0, 0, 0.18);
-  transform: rotate(-2deg);
+  box-shadow: none;
+  transform: none;
   border: 2px solid var(--secondary);
 }
 
@@ -271,11 +271,11 @@ section h3::after {
    Letter page
    ========================================================= */
 .letter-content {
-  background: radial-gradient(circle at center, rgba(0, 70, 152, 0.06) 0%, rgba(220, 29, 34, 0.04) 42%, #ffffff 100%);
+  background: var(--white);
   border-radius: 0;
   padding: 14mm 12mm;
   box-shadow: none;
-  border: none;
+  border: 1px solid var(--page-border);
   min-height: 100%;
 }
 
@@ -291,7 +291,6 @@ section h3::after {
   color: var(--primary);
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 1.4px;
 }
 
 .letter-role {
@@ -300,7 +299,6 @@ section h3::after {
   font-weight: 600;
   margin-top: 8px;
   text-transform: uppercase;
-  letter-spacing: 0.4px;
 }
 
 .letter-contact {
@@ -315,7 +313,7 @@ section h3::after {
 
 .letter-divider {
   height: 2px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary), transparent);
+  background: var(--primary);
   margin: 12px 0 10px;
 }
 
@@ -356,8 +354,8 @@ section h3::after {
     height: auto !important;
     background: white !important;
     color: black !important;
-    -webkit-print-color-adjust: economy !important;   /* или убрать совсем */
-    print-color-adjust: economy !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   /* Самое важное для Chrome + macOS — убираем триггеры реверса текста */
@@ -386,7 +384,7 @@ section h3::after {
     background: white !important;
     background-image: none !important;
     box-shadow: none !important;
-    border: none !important;
+    border: 1px solid #d9dee7 !important;
     overflow: visible !important;
     break-inside: auto;
   }
@@ -397,13 +395,13 @@ section h3::after {
     background: white !important;
     background-image: none !important;
     box-shadow: none !important;
-    border: 1px solid #ddd !important;
+    border: 1px solid #d9dee7 !important;
     transform: none !important;
     filter: none !important;
   }
 
   /* Контроль разрывов страниц — must-have */
-  h1, h2, h3, .role, .photo-card, article, section, .letter-body > p {
+  h1, h2, h3, .photo-card {
     break-inside: avoid;
     page-break-inside: avoid;
   }
