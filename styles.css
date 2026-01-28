@@ -351,28 +351,59 @@ section h3::after {
   html,
   body {
     width: 210mm;
-    height: 100%;
+    height: auto;
     margin: 0;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  body {
+    padding: 0;
     background: #fff !important;
+    color: #000 !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12pt;
+    line-height: 1.4;
+    /* Удаляем принудительное сохранение цвета */
+    -webkit-print-color-adjust: economy !important;
+    print-color-adjust: economy !important;
   }
 
-  .page {
-    width: 210mm;
-    min-height: 297mm;
+  .page,
+  .letter-content {
+    width: 100% !important;
+    min-height: auto !important;
+    background: none !important;
+    background-color: #fff !important;
     box-shadow: none !important;
     border-radius: 0 !important;
-    overflow: hidden !important;
+    overflow: visible !important;
   }
 
   .right > section,
-  .photo-card,
-  .letter-content {
+  .photo-card {
+    background: none !important;
+    background-color: #fff !important;
     box-shadow: none !important;
     filter: none !important;
+    border: 1px solid #ccc !important; /* тонкая граница, если нужно */
+  }
+
+  .photo-card img {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid;
+  }
+
+  /* Скрываем элементы, не нужные в печати */
+  nav, footer, .no-print {
+    display: none !important;
+  }
+
+  /* Избегаем разрывов в ключевых местах */
+  h1, h2, h3, p, img, .role, .experience article {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Обнуляем лишние отступы */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
   }
 }
