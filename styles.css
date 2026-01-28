@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
 /* =========================================================
    Global LTR / PDF text order safety
    ========================================================= */
@@ -56,7 +58,6 @@ body {
   width: min(100%, 210mm);
   min-height: 297mm;
   margin: 0 auto;
-  background-color: #fff;
   background: radial-gradient(circle at center, rgba(0, 70, 152, 0.08) 0%, rgba(220, 29, 34, 0.05) 45%, #ffffff 100%);
   display: grid;
   grid-template-columns: 2.2fr 1fr;
@@ -270,7 +271,6 @@ section h3::after {
    Letter page
    ========================================================= */
 .letter-content {
-  background-color: #fff;
   background: radial-gradient(circle at center, rgba(0, 70, 152, 0.06) 0%, rgba(220, 29, 34, 0.04) 42%, #ffffff 100%);
   border-radius: 0;
   padding: 14mm 12mm;
@@ -350,9 +350,8 @@ section h3::after {
 
   html,
   body {
-    width: auto !important;
-    height: auto !important;
-    min-height: 100% !important;
+    width: 210mm;
+    height: auto;
     margin: 0;
     padding: 0;
     background: #fff !important;
@@ -367,9 +366,8 @@ section h3::after {
 
   .page,
   .letter-content {
-    width: auto !important;
+    width: 100% !important;
     min-height: auto !important;
-    margin: 0 !important;
     background: none !important;
     background-color: #fff !important;
     box-shadow: none !important;
@@ -384,10 +382,6 @@ section h3::after {
     box-shadow: none !important;
     filter: none !important;
     border: 1px solid #ccc !important; /* тонкая граница, если нужно */
-  }
-
-  .photo-card {
-    transform: none !important;
   }
 
   .photo-card img {
@@ -405,16 +399,6 @@ section h3::after {
   h1, h2, h3, p, img, .role, .experience article {
     page-break-inside: avoid;
     break-inside: avoid;
-  }
-
-  .experience article,
-  .right > section,
-  .photo-card {
-    break-inside: avoid;
-    page-break-inside: avoid;
-    display: inline-block;
-    width: 100%;
-    vertical-align: top;
   }
 
   /* Обнуляем лишние отступы */
